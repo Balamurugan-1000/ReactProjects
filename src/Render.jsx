@@ -6,7 +6,7 @@ const Render = ({ movie, setFullscreendata, Fullscreendata }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="grid grid-cols-5 grid-flow-row gap-10 mx-5">
+    <div className="grid grid-cols-5 grid-flow-row mt-4 gap-10 mx-5">
       {movie.map((item) => {
         return (
           <div
@@ -15,7 +15,6 @@ const Render = ({ movie, setFullscreendata, Fullscreendata }) => {
             onClick={() => {
               setFullscreendata(item);
               navigate(`/${item.id}`);
-              console.log(Fullscreendata);
             }}
           >
             <img

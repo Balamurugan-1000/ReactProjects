@@ -4,7 +4,6 @@ import Video from "../../API/Video";
 const FullScreenRender = ({ movie, setFullscreendata, Fullscreendata , setNewMovie , newMovie , setVideolink  ,videoLink}) => {
   
   React.useEffect(() => {
-    console.log(Fullscreendata);
   }, [Fullscreendata]);
 
   return (

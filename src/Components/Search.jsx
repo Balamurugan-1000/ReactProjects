@@ -21,7 +21,6 @@ const Search = ({ searchKey ,  setFullscreendata, Fullscreendata }) => {
       )
         .then((response) => response.json())
         .then((response) => {
-          console.log(response.results);
             response.results.forEach(element => {
               if(element.poster_path !== null) {
                 setSearchMovie((prev) => [...prev, element]);
