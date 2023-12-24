@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Render from "../Render";
 
-const Search = ({ searchKey ,  setFullscreendata, Fullscreendata }) => {
+const Search = ({ searchKey, setFullscreendata, Fullscreendata }) => {
   const [searchMovie, setSearchMovie] = useState([]);
   useEffect(() => {
     setSearchMovie([]);
@@ -21,11 +21,11 @@ const Search = ({ searchKey ,  setFullscreendata, Fullscreendata }) => {
       )
         .then((response) => response.json())
         .then((response) => {
-            response.results.forEach(element => {
-              if(element.poster_path !== null) {
-                setSearchMovie((prev) => [...prev, element]);
-              }
-            });
+          response.results.forEach((element) => {
+            if (element.poster_path !== null) {
+              setSearchMovie((prev) => [...prev, element]);
+            }
+          });
         })
         .catch((err) => console.error(err));
     }
@@ -33,16 +33,20 @@ const Search = ({ searchKey ,  setFullscreendata, Fullscreendata }) => {
   if (searchMovie.length > 0) {
     return (
       <div className=" bg-[#0d0c22] h-screen w-screen">
-        <Render movie={searchMovie} setFullscreendata = {setFullscreendata} Fullscreendata={Fullscreendata} />
+        <Render
+          movie={searchMovie}
+          setFullscreendata={setFullscreendata}
+          Fullscreendata={Fullscreendata}
+        />
       </div>
     );
+  } else {
+    return (
+      <h1 className="h-screen w-screen text-4xl text-white-400 text-center    bg-[#0d0c22]">
+        search for a movie !!!
+      </h1>
+    );
   }
-  else {
-    return <h1 className="h-screen w-screen text-4xl text-white-400 text-center    bg-[#0d0c22]">
-      search for a movie !!!
-    </h1>;
-  }
-  }
-
+};
 
 export default Search;
